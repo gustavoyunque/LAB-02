@@ -1,0 +1,54 @@
+/**
+ * Ejercicio 2: Rotación a la Izquierda
+ * Ejemplo: Si d=2 A=[1 2 3 4 5] -> Aiz=[3 4 5 1 2]
+ */
+
+public class Ejercicio2 {
+
+    public int[] rotarIzquierdaArray(int[] A, int d) {
+        int[] Aiz = new int[A.length];
+        int n = A.length;
+
+        d = d % n;
+
+        for (int i = 0; i < n; i++) {
+            int nuevaPos = (i - d + n) % n;
+            Aiz[nuevaPos] = A[i];
+        }
+
+        return Aiz;
+    }
+
+    private static void mostrarArray(int[] arr) {
+        System.out.print("[");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+            if (i < arr.length - 1) {
+                System.out.print(" ");
+            }
+        }
+        System.out.println("]");
+    }
+
+    public static void main(String[] args) {
+
+        Ejercicio2 ejercicio = new Ejercicio2();
+
+        int[] A = {1, 2, 3, 4, 5};
+        int d = 2;  // Número de posiciones a rotar
+
+        System.out.println("\n===================================================");
+        System.out.println("Ejercicio 2: Rotación a la Izquierda");
+        System.out.println("===================================================\n");
+
+        System.out.println("Array original:");
+        mostrarArray(A);
+        System.out.println("");
+
+        int[] Aiz = ejercicio.rotarIzquierdaArray(A, d);
+
+        System.out.println("Array rotado " + d + " posiciones a la izquierda:");
+        mostrarArray(Aiz);
+        System.out.println("\n===================================================\n");
+    }
+}
