@@ -1,0 +1,39 @@
+
+public class Ejercicio1 {
+
+    public int[] invertirArray(int[] A) {
+        int[] Ain = new int[A.length];
+        
+        for (int i = 0; i < A.length; i++) {
+            Ain[i] = A[A.length - 1 - i];
+        }
+
+        return Ain;
+    }
+
+    private static void mostrarArray(int[] arr) {
+        System.out.print("[");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+            if (i < arr.length - 1) {
+                System.out.print(" ");
+            }
+        }
+        System.out.println("]");
+    }
+
+    public static void main(String[] args) {
+        Ejercicio1 ejercicio = new Ejercicio1();
+
+        int[] A = {1, 2, 3};
+
+        System.out.println("Ejercicio 1: Invertir un array de enteros:\n");
+        System.out.println("Array original:\n");
+        mostrarArray(A);
+
+        int[] Ain = ejercicio.invertirArray(A);
+
+        System.out.println("Array invertido:\n");
+        mostrarArray(Ain);
+    }
+}
